@@ -1,1 +1,2 @@
-SELECT * from my_table_name
+SELECT * 
+FROM subjects
