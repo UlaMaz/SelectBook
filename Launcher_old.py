@@ -49,6 +49,7 @@ print(type(rows))
 print(f"The number of rows in this database is {len(rows)}")
 
 my_dog_names = ['Fido', 'Peter', 'Oscar', 'Maramduke']
+print(my_dog_names[0][2])
 number_of_dog_names = len(my_dog_names)
 print(number_of_dog_names)
 #number_of_rows = len(rows)

@@ -1,2 +1,2 @@
-SELECT * 
-FROM May12Table
+SELECT language, downloads
+FROM catalogue_entries
