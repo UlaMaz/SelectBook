@@ -5,9 +5,10 @@ with open(newname, 'r')as newSQLfile:
 
 #print(Query519)
 
-database_file_name = "../SQL_data/converted_catalogue.db"
+database_file_name = "../SQL_data_copy/converted_catalogue.db"
 SundayDatabase   =  sqlite3.connect(database_file_name)
 SundayCursor = SundayDatabase.cursor()
+
 SundayCursor.execute(Query519)
 queryresults=SundayCursor.fetchall()
 
@@ -33,3 +34,18 @@ print(twenty_most_cmn_lnggs)
 language_dictionary = {"en":"English",
 						}
 
+table_creator_file_name = 'bin_table.sql'
+with open(table_creator_file_name, 'r') as TuesdaySQL:
+    TableCreator = TuesdaySQL.read()
+
+SundayCursor.execute(TableCreator)
+
+row_creator_file_name = 'createrow.sql'
+with open (row_creator_file_name, 'r') as TuesdaySQL:
+    RowCreator = TuesdaySQL.read()
+SundayCursor.execute(RowCreator)
+
+TableReader = "SELECT * FROM Bin_Data"
+SundayCursor.execute(TableReader)
+queryresults = SundayCursor.fetchall()
+print(queryresults)
