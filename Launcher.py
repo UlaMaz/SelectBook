@@ -49,3 +49,10 @@ TableReader = "SELECT * FROM Bin_Data"
 SundayCursor.execute(TableReader)
 queryresults = SundayCursor.fetchall()
 print(queryresults)
+
+oldest_entry_file_name = 'SELECtcreated.sql'
+with open(oldest_entry_file_name, 'r') as TodaysSQL:
+    OldestDateCreator = TodaysSQL.read()
+SundayCursor.execute(OldestDateCreator)
+queryresults = SundayCursor.fetchall()
+print(queryresults)
