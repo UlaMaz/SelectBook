@@ -40,10 +40,27 @@ with open(table_creator_file_name, 'r') as TuesdaySQL:
 
 SundayCursor.execute(TableCreator)
 
+
+#### REMOVE #####
 row_creator_file_name = 'createrow.sql'
 with open (row_creator_file_name, 'r') as TuesdaySQL:
     RowCreator = TuesdaySQL.read()
 SundayCursor.execute(RowCreator)
+###################
+
+##### CREATE row dynamically ######
+item_no = 0
+start_date = 1970
+end_date = 3000
+
+row_creation = 'INSERT INTO Bin_Data'
+table_titles = '(ItemNo, StartDate, EndDate)'
+table_content = f'VALUES ({item_no}, {start_date}, {end_date})'
+
+super_string = row_creation + " " + table_titles + " " + table_content
+SundayCursor.execute(super_string)
+#############
+print(super_string)
 
 TableReader = "SELECT * FROM Bin_Data"
 SundayCursor.execute(TableReader)
@@ -55,4 +72,9 @@ with open(oldest_entry_file_name, 'r') as TodaysSQL:
     OldestDateCreator = TodaysSQL.read()
 SundayCursor.execute(OldestDateCreator)
 queryresults = SundayCursor.fetchall()
+print(queryresults)
+
+TableDelete = "DROP TABLE 'Bin_Data'"
+SundayCursor.execute(TableDelete)
+queryresults= SundayCursor.fetchall()
 print(queryresults)
