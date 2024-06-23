@@ -90,14 +90,13 @@ for row_number in range(1970, 3001):
 TableReader = "SELECT * FROM Bin_Data"
 SundayCursor.execute(TableReader)
 queryresults = SundayCursor.fetchall()
-print(queryresults)
+print(queryresults[0:6])
 
 
 # Delete the hitogram bin table, so we can start afresh next time
 TableDelete = "DROP TABLE 'Bin_Data'"
 SundayCursor.execute(TableDelete)
 queryresults= SundayCursor.fetchall()
-print(queryresults)
 
 ###################################################################
 
